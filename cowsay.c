@@ -9,22 +9,22 @@ typedef struct {
 } cowsay_t;
 
 void build_dashLength (char *dl, size_t lnlen) {
-	/*
-	size_t i;
-	for (i = 0; i != lnlen; i++)
-		dl[i] = '-';
-	dl[i] = '\0';
-	*/
 	memset (dl, (int) '-', lnlen);
 	dl[lnlen] = '\0';
 }
 
-int init_cowsay (cowsay_t *cowsay, char const *cs) {
+void init_cowsay (cowsay_t *cowsay, char const *cs, char *dl, size_t lnlen) {
 	cowsay->cowsay = cs;
 	cowsay->lnlen = strlen (cs);
-	cowsay->dashLength = malloc (cowsay->lnlen + 1);
-	if (cowsay->dashLength == NULL) return -1;
+	cowsay->dashLength = dl;
 	build_dashLength (cowsay->dashLength, cowsay->lnlen);
+}
+
+int alloc_cowsay (cowsay_t *cowsay, char const *cs) {
+	size_t lnlen = strlen (cs);
+	char *dl = malloc (lnlen + 1);
+	if (dl == NULL) return -1;
+	init_cowsay (cowsay, cs, dl, lnlen);
 	return 0;
 }
 
@@ -50,7 +50,7 @@ char *build_cow (cowsay_t const *cowsay, char const *template) {
 int main(int argc, char* argv[]){
 	cowsay_t cs;
 	char *out;
-	if (init_cowsay (&cs, "Hello, World!") != 0)
+	if (alloc_cowsay (&cs, "Hello, World!") != 0)
 		return EXIT_FAILURE;
 	out = build_cow (&cs,
 		"--%s--\n"
