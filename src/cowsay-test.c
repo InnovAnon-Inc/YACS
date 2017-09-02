@@ -9,7 +9,8 @@ int main (int argc, char *argv[]){
 		"   - (oo)|_______\n"
 		"     (__)|       )/|/\n"
 		"         ||----w |\n"
-		"         ||     ||\n") != 0)
+		"         ||     ||\n",
+		puts) != 0)
 		return EXIT_FAILURE;
 	return EXIT_SUCCESS;
 }
