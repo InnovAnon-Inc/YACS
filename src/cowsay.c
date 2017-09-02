@@ -1,12 +1,7 @@
 #include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
 
-typedef struct {
-	char const *cowsay;
-	char *dashLength;
-	size_t lnlen;
-} cowsay_t;
+#include "cowsay.h"
 
 void build_dashLength (char *dl, size_t lnlen) {
 	memset (dl, (int) '-', lnlen);
@@ -44,29 +39,21 @@ char *build_cow (cowsay_t const *cowsay, char const *template) {
 	return out;
 }
 
-/* https://pastebin.com/f2e55ab5 */
-
-
-int main(int argc, char* argv[]){
+int ezcowsay (char const *str, char const *template,
+	int (*cb) (char *)){
 	cowsay_t cs;
 	char *out;
-	if (alloc_cowsay (&cs, "Hello, World!") != 0)
-		return EXIT_FAILURE;
-	out = build_cow (&cs,
-		"--%s--\n"
-		"< %s >\n"
-		"--%s--\n"
-		"  |  ^__^\n"
-		"   - (oo)|_______\n"
-		"     (__)|       )/|/\n"
-		"         ||----w |\n"
-		"         ||     ||\n");
+	if (alloc_cowsay (&cs, str) != 0)
+		return -1;
+	out = build_cow (&cs, template);
 	if (out == NULL) {
 		free_cowsay (&cs);
-		return EXIT_FAILURE;
+		return -2;
 	}
-	puts (out);
+	cb (out);
 	free (out);
 	free_cowsay (&cs);
-	return EXIT_SUCCESS;
+	return 0;
 }
+
+/* https://pastebin.com/f2e55ab5 */
