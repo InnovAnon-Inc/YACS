@@ -19,7 +19,7 @@ void free_cowsay (cowsay_t *cowsay) ;
 
 char *build_cow (cowsay_t const *cowsay, char const *template) ;
 
-int ezcowsay (const char *str, const char *template,
-	int (*cb) (char *)) ;
+int ezcowsay (char const *str, char const *template,
+	int (*cb) (char const *)) ;
 
 #endif /* _COWSAY_H_ */

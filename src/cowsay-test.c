@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include "cowsay.h"
 
 int main (int argc, char *argv[]){

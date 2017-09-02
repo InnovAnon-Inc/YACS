@@ -40,7 +40,7 @@ char *build_cow (cowsay_t const *cowsay, char const *template) {
 }
 
 int ezcowsay (char const *str, char const *template,
-	int (*cb) (char *)){
+	int (*cb) (char const *)){
 	cowsay_t cs;
 	char *out;
 	if (alloc_cowsay (&cs, str) != 0)
