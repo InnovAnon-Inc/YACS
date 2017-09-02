@@ -4,8 +4,13 @@ include_HEADERS	= cowsay.h
 
 libcowsay_la_CFLAGS = -Wextra -pedantic -ansi
 
-bin_PROGRAMS = cowsay-test
+bin_PROGRAMS = cowsay-test laden
 cowsay_test_SOURCES = cowsay-test.c
 cowsay_test_LDADD = libcowsay.la
 
 cowsay_test_CFLAGS = -Wextra -pedantic -ansi -Wconversion -Winit-self -Wold-style-cast -Woverloaded-virtual -Wuninitialized -Wmissing-declarations -Winit-self -Wcast-qual  -Wsign-promo -Wcast-align -Wstrict-null-sentinel -Wstrict-overflow
+
+laden_SOURCES = laden.c
+laden_LDADD = libcowsay.la
+
+laden_CFLAGS = -Wextra -pedantic -ansi -Wconversion -Winit-self -Wold-style-cast -Woverloaded-virtual -Wuninitialized -Wmissing-declarations -Winit-self -Wcast-qual  -Wsign-promo -Wcast-align -Wstrict-null-sentinel -Wstrict-overflow
