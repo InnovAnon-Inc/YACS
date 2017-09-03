@@ -14,3 +14,8 @@ laden_SOURCES = laden.c
 laden_LDADD = libcowsay.la
 
 laden_CFLAGS = -Wextra -pedantic -ansi -Wconversion -Winit-self -Wold-style-cast -Woverloaded-virtual -Wuninitialized -Wmissing-declarations -Winit-self -Wcast-qual  -Wsign-promo -Wcast-align -Wstrict-null-sentinel -Wstrict-overflow
+
+zelda_SOURCES = zelda.c
+zelda_LDADD = libcowsay.la
+
+zelda_CFLAGS = -Wextra -pedantic -ansi -Wconversion -Winit-self -Wold-style-cast -Woverloaded-virtual -Wuninitialized -Wmissing-declarations -Winit-self -Wcast-qual  -Wsign-promo -Wcast-align -Wstrict-null-sentinel -Wstrict-overflow
