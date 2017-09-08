@@ -1,6 +1,10 @@
 #ifndef _COWSAY_H_
 #define _COWSAY_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdlib.h>
 
 typedef struct {
@@ -21,5 +25,9 @@ char *build_cow (cowsay_t const *cowsay, char const *template) ;
 
 int ezcowsay (char const *str, char const *template,
 	int (*cb) (char const *)) ;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _COWSAY_H_ */
