@@ -4,7 +4,7 @@ include_HEADERS	= cowsay.h
 
 libcowsay_la_CFLAGS = -Wextra -pedantic -ansi
 
-bin_PROGRAMS = cowsay-test laden
+bin_PROGRAMS = cowsay-test laden zelda
 cowsay_test_SOURCES = cowsay-test.c
 cowsay_test_LDADD = libcowsay.la
 
