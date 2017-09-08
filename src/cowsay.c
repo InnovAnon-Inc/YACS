@@ -31,6 +31,7 @@ char *build_cow (cowsay_t const *cowsay, char const *template) {
 	size_t tsz = strlen (template) - 2 * 3 ;
 	size_t outsz = tsz + cowsay->lnlen * 3;
 	char *out = malloc (outsz + 1);
+	if (out == NULL) return NULL;
 	if (outsz != snprintf (out, outsz, template,
 		cowsay->dashLength, cowsay->cowsay, cowsay->dashLength)) {
 		free (out);
@@ -50,7 +51,11 @@ int ezcowsay (char const *str, char const *template,
 		free_cowsay (&cs);
 		return -2;
 	}
-	cb (out);
+	if (cb (out) != 0) {
+		free (out);
+		free_cowsay (&cs);
+		return -3;
+	}
 	free (out);
 	free_cowsay (&cs);
 	return 0;
