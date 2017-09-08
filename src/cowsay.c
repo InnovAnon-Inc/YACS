@@ -3,6 +3,8 @@
 
 #include "cowsay.h"
 
+extern int snprintf(char *str, size_t size, const char *format, ...) ;
+
 void build_dashLength (char *dl, size_t lnlen) {
 	memset (dl, (int) '-', lnlen);
 	dl[lnlen] = '\0';
@@ -31,8 +33,10 @@ char *build_cow (cowsay_t const *cowsay, char const *template) {
 	size_t tsz = strlen (template) - 2 * 3 ;
 	size_t outsz = tsz + cowsay->lnlen * 3;
 	char *out = malloc (outsz + 1);
+	/* TODO */
+	/*if (outsz > SSIZE_MAX) return NULL;*/
 	if (out == NULL) return NULL;
-	if (outsz != snprintf (out, outsz, template,
+	if ((ssize_t) outsz != snprintf (out, outsz, template,
 		cowsay->dashLength, cowsay->cowsay, cowsay->dashLength)) {
 		free (out);
 		return NULL;
