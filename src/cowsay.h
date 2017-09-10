@@ -19,31 +19,31 @@ void build_dashLength (char *dl, size_t lnlen)
 __attribute__ ((nonnull (1), nothrow)) ;
 
 void init_cowsay (
-	cowsay_t *cowsay,
-	char const *__restrict__ cs,
-	char *__restrict__ dl,
+	cowsay_t *restrict cowsay,
+	char const *restrict cs,
+	char *restrict dl,
 	size_t lnlen)
 __attribute__ ((nonnull (1, 2, 3), nothrow)) ;
 
 int alloc_cowsay (
-	cowsay_t *cowsay,
-	char const *cs)
+	cowsay_t *restrict cowsay,
+	char const *restrict cs)
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result)) ;
 
 void free_cowsay (cowsay_t *cowsay)
 __attribute__ ((nonnull (1), nothrow)) ;
 
 char *build_cow (
-	cowsay_t const *cowsay,
-	char const *template)
+	cowsay_t const *restrict cowsay,
+	char const *restrict template)
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result)) ;
 
 typedef __attribute__ ((nonnull (1), warn_unused_result))
 	int (*ezcowsaycb_t) (char const *) ;
 
 int ezcowsay (
-	char const *str,
-	char const *template,
+	char const *restrict str,
+	char const *restrict template,
 	ezcowsaycb_t cb)
 __attribute__ ((nonnull (1, 2, 3), warn_unused_result)) ;
 

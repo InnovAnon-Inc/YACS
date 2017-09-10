@@ -15,9 +15,9 @@ void build_dashLength (char *dl, size_t lnlen) {
 
 __attribute__ ((nonnull (1, 2, 3), nothrow))
 void init_cowsay (
-	cowsay_t *cowsay,
-	char const *__restrict__ cs,
-	char *__restrict__ dl,
+	cowsay_t *restrict cowsay,
+	char const *restrict cs,
+	char *restrict dl,
 	size_t lnlen) {
 	cowsay->cowsay = cs;
 	cowsay->lnlen = strlen (cs);
@@ -27,8 +27,8 @@ void init_cowsay (
 
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result))
 int alloc_cowsay (
-	cowsay_t *cowsay,
-	char const *cs) {
+	cowsay_t *restrict cowsay,
+	char const *restrict cs) {
 	size_t lnlen = strlen (cs);
 	char *dl = malloc (lnlen + 1);
 	if (dl == NULL) return -1;
@@ -43,8 +43,8 @@ void free_cowsay (cowsay_t *cowsay) {
 
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result))
 char *build_cow (
-	cowsay_t const *cowsay,
-	char const *template) {
+	cowsay_t const *restrict cowsay,
+	char const *restrict template) {
 	size_t tsz = strlen (template) - 2 * 3 ;
 	size_t outsz = tsz + cowsay->lnlen * 3;
 	char *out = malloc (outsz + 1);
@@ -61,8 +61,8 @@ char *build_cow (
 
 __attribute__ ((nonnull (1, 2, 3), warn_unused_result))
 int ezcowsay (
-	char const *str,
-	char const *template,
+	char const *restrict str,
+	char const *restrict template,
 	ezcowsaycb_t cb) {
 	cowsay_t cs;
 	char *out;
