@@ -15,9 +15,9 @@ void build_dashLength (char *dl, size_t lnlen) {
 
 __attribute__ ((nonnull (1, 2, 3), nothrow))
 void init_cowsay (
-	cowsay_t *restrict cowsay,
-	char const *cs,
-	char *dl,
+	cowsay_t *cowsay,
+	char const *restrict cs,
+	char *restrict dl,
 	size_t lnlen) {
 	cowsay->cowsay = cs;
 	cowsay->lnlen = strlen (cs);
