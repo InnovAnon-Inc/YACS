@@ -39,12 +39,12 @@ char *build_cow (
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result)) ;
 
 typedef __attribute__ ((nonnull (1), warn_unused_result))
-	int (*restrict ezcowsaycb_t) (char const *) ;
+	int (*ezcowsaycb_t) (char const *) ;
 
 int ezcowsay (
 	char const *restrict str,
 	char const *restrict template,
-	ezcowsaycb_t cb)
+	restrict ezcowsaycb_t cb)
 __attribute__ ((nonnull (1, 2, 3), warn_unused_result)) ;
 
 #ifdef __cplusplus
