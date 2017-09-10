@@ -20,7 +20,7 @@ void init_cowsay (cowsay_t *cowsay, char const *cs, char *dl, size_t lnlen) {
 	build_dashLength (cowsay->dashLength, cowsay->lnlen);
 }
 
-__attribute__ ((nonnull (1, 2), nothrow))
+__attribute__ ((nonnull (1, 2), nothrow, warn_unused_result))
 int alloc_cowsay (cowsay_t *cowsay, char const *cs) {
 	size_t lnlen = strlen (cs);
 	char *dl = malloc (lnlen + 1);
@@ -34,7 +34,7 @@ void free_cowsay (cowsay_t *cowsay) {
 	free (cowsay->dashLength);
 }
 
-__attribute__ ((nonnull (1, 2), nothrow))
+__attribute__ ((nonnull (1, 2), nothrow, warn_unused_result))
 char *build_cow (cowsay_t const *cowsay, char const *template) {
 	size_t tsz = strlen (template) - 2 * 3 ;
 	size_t outsz = tsz + cowsay->lnlen * 3;
@@ -50,7 +50,7 @@ char *build_cow (cowsay_t const *cowsay, char const *template) {
 	return out;
 }
 
-__attribute__ ((nonnull (1, 2, 3)))
+__attribute__ ((nonnull (1, 2, 3), warn_unused_result))
 int ezcowsay (char const *str, char const *template,
 	ezcowsaycb_t cb) {
 	cowsay_t cs;
