@@ -32,7 +32,7 @@ int alloc_cowsay (
 	cowsay_t *restrict cowsay,
 	char const *restrict cs) {
 	size_t lnlen = strlen (cs);
-	char *dl = malloc (lnlen + 1);
+	char *restrict dl = malloc (lnlen + 1);
 	if (dl == NULL) return -1;
 	init_cowsay (cowsay, cs, dl, lnlen);
 	return 0;
@@ -49,7 +49,7 @@ char *build_cow (
 	char const *restrict template) {
 	size_t tsz = strlen (template) - 2 * 3 ;
 	size_t outsz = tsz + cowsay->lnlen * 3;
-	char *out = malloc (outsz + 1);
+	char *restrict out = malloc (outsz + 1);
 	/* TODO */
 	/*if (outsz > SSIZE_MAX) return NULL;*/
 	if (out == NULL) return NULL;
@@ -67,7 +67,7 @@ int ezcowsay (
 	char const *restrict template,
 	ezcowsaycb_t cb) {
 	cowsay_t cs;
-	char *out;
+	char *restrict out;
 	if (alloc_cowsay (&cs, str) != 0)
 		return -1;
 	out = build_cow (&cs, template);
