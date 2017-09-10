@@ -8,7 +8,9 @@
 extern int snprintf(char *str, size_t size, const char *format, ...) ;
 
 __attribute__ ((nonnull (1), nothrow))
-void build_dashLength (char *dl, size_t lnlen) {
+void build_dashLength (
+	char *restrict dl,
+	size_t lnlen) {
 	memset (dl, (int) '-', lnlen);
 	dl[lnlen] = '\0';
 }
@@ -37,7 +39,7 @@ int alloc_cowsay (
 }
 
 __attribute__ ((nonnull (1), nothrow))
-void free_cowsay (cowsay_t *cowsay) {
+void free_cowsay (cowsay_t *restrict cowsay) {
 	free (cowsay->dashLength);
 }
 

@@ -15,7 +15,9 @@ typedef struct {
 	size_t lnlen;
 } cowsay_t;
 
-void build_dashLength (char *restrict dl, size_t lnlen)
+void build_dashLength (
+	char *restrict dl,
+	size_t lnlen)
 __attribute__ ((nonnull (1), nothrow)) ;
 
 void init_cowsay (
