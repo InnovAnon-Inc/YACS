@@ -10,12 +10,12 @@ extern "C" {
 #include <glitter.h>
 
 typedef struct {
-	char const *cowsay;
-	char *dashLength;
+	char const *restrict cowsay;
+	char *restrict dashLength;
 	size_t lnlen;
 } cowsay_t;
 
-void build_dashLength (char *dl, size_t lnlen)
+void build_dashLength (char *restrict dl, size_t lnlen)
 __attribute__ ((nonnull (1), nothrow)) ;
 
 void init_cowsay (
@@ -30,7 +30,7 @@ int alloc_cowsay (
 	char const *restrict cs)
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result)) ;
 
-void free_cowsay (cowsay_t *cowsay)
+void free_cowsay (cowsay_t *restrict cowsay)
 __attribute__ ((nonnull (1), nothrow)) ;
 
 char *build_cow (
@@ -39,12 +39,12 @@ char *build_cow (
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result)) ;
 
 typedef __attribute__ ((nonnull (1), warn_unused_result))
-	int (*ezcowsaycb_t) (char const *) ;
+	int (*ezcowsaycb_t) (char const *restrict) ;
 
 int ezcowsay (
 	char const *restrict str,
 	char const *restrict template,
-	restrict ezcowsaycb_t cb)
+	ezcowsaycb_t cb)
 __attribute__ ((nonnull (1, 2, 3), warn_unused_result)) ;
 
 #ifdef __cplusplus
