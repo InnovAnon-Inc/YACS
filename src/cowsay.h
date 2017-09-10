@@ -28,8 +28,11 @@ __attribute__ ((nonnull (1), nothrow)) ;
 char *build_cow (cowsay_t const *cowsay, char const *template)
 __attribute__ ((nonnull (1, 2), nothrow)) ;
 
+typedef __attribute__ ((nonnull (1)))
+	int (*ezcowsaycb_t) (char const *)) ;
+
 int ezcowsay (char const *str, char const *template,
-	__attribute__ ((nonnull (1))) int (*cb) (char const *))
+	ezcowsaycb_t cb)
 __attribute__ ((nonnull (1, 2, 3))) ;
 
 #ifdef __cplusplus

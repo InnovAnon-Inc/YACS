@@ -52,7 +52,7 @@ char *build_cow (cowsay_t const *cowsay, char const *template) {
 
 __attribute__ ((nonnull (1, 2, 3)))
 int ezcowsay (char const *str, char const *template,
-	__attribute__ ((nonnull (1)))  int (*cb) (char const *)){
+	ezcowsaycb_t cb) {
 	cowsay_t cs;
 	char *out;
 	if (alloc_cowsay (&cs, str) != 0)
