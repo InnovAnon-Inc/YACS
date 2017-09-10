@@ -20,8 +20,8 @@ __attribute__ ((nonnull (1), nothrow)) ;
 
 void init_cowsay (
 	cowsay_t *cowsay,
-	char const *restrict cs,
-	char *restrict dl,
+	char const *__restrict__ cs,
+	char *__restrict__ dl,
 	size_t lnlen)
 __attribute__ ((nonnull (1, 2, 3), nothrow)) ;
 
