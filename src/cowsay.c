@@ -6,13 +6,13 @@
 
 extern int snprintf(char *str, size_t size, const char *format, ...) ;
 
-__attribute__ ((nonnull (1)))
+__attribute__ ((nonnull (1), nothrow))
 void build_dashLength (char *dl, size_t lnlen) {
 	memset (dl, (int) '-', lnlen);
 	dl[lnlen] = '\0';
 }
 
-__attribute__ ((nonnull (1, 2, 3)))
+__attribute__ ((nonnull (1, 2, 3), nothrow))
 void init_cowsay (cowsay_t *cowsay, char const *cs, char *dl, size_t lnlen) {
 	cowsay->cowsay = cs;
 	cowsay->lnlen = strlen (cs);
@@ -20,7 +20,7 @@ void init_cowsay (cowsay_t *cowsay, char const *cs, char *dl, size_t lnlen) {
 	build_dashLength (cowsay->dashLength, cowsay->lnlen);
 }
 
-__attribute__ ((nonnull (1, 2)))
+__attribute__ ((nonnull (1, 2), nothrow))
 int alloc_cowsay (cowsay_t *cowsay, char const *cs) {
 	size_t lnlen = strlen (cs);
 	char *dl = malloc (lnlen + 1);
@@ -29,12 +29,12 @@ int alloc_cowsay (cowsay_t *cowsay, char const *cs) {
 	return 0;
 }
 
-__attribute__ ((nonnull (1)))
+__attribute__ ((nonnull (1), nothrow))
 void free_cowsay (cowsay_t *cowsay) {
 	free (cowsay->dashLength);
 }
 
-__attribute__ ((nonnull (1, 2)))
+__attribute__ ((nonnull (1, 2), nothrow))
 char *build_cow (cowsay_t const *cowsay, char const *template) {
 	size_t tsz = strlen (template) - 2 * 3 ;
 	size_t outsz = tsz + cowsay->lnlen * 3;
@@ -52,7 +52,7 @@ char *build_cow (cowsay_t const *cowsay, char const *template) {
 
 __attribute__ ((nonnull (1, 2, 3)))
 int ezcowsay (char const *str, char const *template,
-	int (*cb) (char const *)){
+	__attribute__ ((nonnull (1)))  int (*cb) (char const *)){
 	cowsay_t cs;
 	char *out;
 	if (alloc_cowsay (&cs, str) != 0)
