@@ -63,7 +63,7 @@ __attribute__ ((nonnull (1, 2, 3), warn_unused_result))
 int ezcowsay (
 	char const *restrict str,
 	char const *restrict template,
-	ezcowsaycb_t restrict cb) {
+	ezcowsaycb_t cb) {
 	cowsay_t cs;
 	char *out;
 	if (alloc_cowsay (&cs, str) != 0)
