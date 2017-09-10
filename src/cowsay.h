@@ -21,12 +21,10 @@ int alloc_cowsay (cowsay_t *cowsay, char const *cs) ;
 
 void free_cowsay (cowsay_t *cowsay) ;
 
-char *build_cow (cowsay_t const *cowsay, char const *template)
-__attribute__ ((format (printf, 2, 1))) ;
+char *build_cow (cowsay_t const *cowsay, char const *template) ;
 
 int ezcowsay (char const *str, char const *template,
-	int (*cb) (char const *))
-__attribute__ ((format (printf, 2, 1))) ;
+	int (*cb) (char const *)) ;
 
 #ifdef __cplusplus
 }

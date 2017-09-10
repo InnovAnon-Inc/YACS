@@ -30,7 +30,6 @@ void free_cowsay (cowsay_t *cowsay) {
 	free (cowsay->dashLength);
 }
 
-__attribute__ ((format (printf, 2, 1)))
 char *build_cow (cowsay_t const *cowsay, char const *template) {
 	size_t tsz = strlen (template) - 2 * 3 ;
 	size_t outsz = tsz + cowsay->lnlen * 3;
@@ -46,7 +45,6 @@ char *build_cow (cowsay_t const *cowsay, char const *template) {
 	return out;
 }
 
-__attribute__ ((format (printf, 2, 1)))
 int ezcowsay (char const *str, char const *template,
 	int (*cb) (char const *)){
 	cowsay_t cs;
