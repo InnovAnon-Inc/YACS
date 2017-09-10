@@ -44,7 +44,7 @@ typedef __attribute__ ((nonnull (1), warn_unused_result))
 int ezcowsay (
 	char const *restrict str,
 	char const *restrict template,
-	ezcowsaycb_t cb)
+	ezcowsaycb_t restrict cb)
 __attribute__ ((nonnull (1, 2, 3), warn_unused_result)) ;
 
 #ifdef __cplusplus
