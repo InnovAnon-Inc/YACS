@@ -15,3 +15,5 @@ laden_LDADD = libcowsay.la
 zelda_SOURCES = zelda.c
 zelda_LDADD = libcowsay.la
 #zelda_CFLAGS =
+
+AM_CPPFLAGS = -D__STDC_INT64__

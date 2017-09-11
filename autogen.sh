@@ -17,6 +17,7 @@ if [ $# -eq 0 ] ; then exit 0
 else
 	test "x$1" == xmake
 	DIR="$(readlink -f `pwd`)"
+	rm -fr ../YACS-build
 	mkdir ../YACS-build
 	cd ../YACS-build
 	"$DIR/configure" "--prefix=$HOME"
