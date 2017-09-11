@@ -14,7 +14,7 @@ AC_CHECK_HEADERS([stdio.h stdlib.h string.h sys/types.h])
 AC_CHECK_HEADERS([glitter.h])
 
 AC_CHECK_LIB([stdlib],[snprintf])
-AC_SEARCH_LIBS([snprintf],[stdlib],[],[])
+#AC_SEARCH_LIBS([snprintf],[stdlib],[],[])
 
 INNOVANON_WARNINGS([])
 
