@@ -16,7 +16,7 @@ typedef struct {
 } cowsay_t;
 
 void build_dashLength (
-	char dl[],
+	char dl[restrict],
 	size_t lnlen)
 __attribute__ ((leaf, nonnull (1), nothrow)) ;
 
