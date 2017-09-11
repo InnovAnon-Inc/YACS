@@ -55,8 +55,11 @@ char *build_cow (
 	char *restrict out = malloc (outsz + 1);
 	TODO (if (outsz > SSIZE_MAX) return NULL;)
 	error_check (out == NULL) return NULL;
+	#pragma GCC diagnostic push
+	#pragma GCC diagnostic ignored "-Wformat-nonliteral"
 	error_check ((ssize_t) outsz != snprintf (out, outsz, template,
 		cowsay->dashLength, cowsay->cowsay, cowsay->dashLength)) {
+	#pragma GCC diagnostic pop
 		free (out);
 		return NULL;
 	}
