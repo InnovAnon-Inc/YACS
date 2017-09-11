@@ -9,7 +9,6 @@ AC_CONFIG_FILES([
  src/Makefile
 ])
 AC_CONFIG_MACRO_DIR([m4])
-AC_OUTPUT
 
 AC_CHECK_HEADERS([stdio.h stdlib.h string.h sys/types.h])
 AC_CHECK_HEADERS([glitter.h])
@@ -59,3 +58,5 @@ AX_APPEND_COMPILE_FLAGS([-Wdisabled-optimization])
 AX_APPEND_COMPILE_FLAGS([-Wstack-protector])
 AX_APPEND_COMPILE_FLAGS([-Wunsuffixed-float-constants])
 AX_APPEND_COMPILE_FLAGS([-Winit-self])
+
+AC_OUTPUT
