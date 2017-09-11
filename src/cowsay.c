@@ -8,7 +8,7 @@ extern int snprintf(char *str, size_t size, const char *format, ...) ;
 
 __attribute__ ((leaf, nonnull (1), nothrow))
 void build_dashLength (
-	char dl[],
+	char dl[restrict],
 	size_t lnlen) {
 	memset (dl, (int) '-', lnlen);
 	dl[lnlen] = '\0';
@@ -17,8 +17,8 @@ void build_dashLength (
 __attribute__ ((nonnull (1, 2, 3), nothrow))
 void init_cowsay (
 	cowsay_t *restrict cowsay,
-	char const cs[],
-	char dl[],
+	char const cs[restrict],
+	char dl[restrict],
 	size_t lnlen) {
 	cowsay->cowsay = cs;
 	cowsay->lnlen = strlen (cs);
@@ -29,7 +29,7 @@ void init_cowsay (
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result))
 int alloc_cowsay (
 	cowsay_t *restrict cowsay,
-	char const cs[]) {
+	char const cs[restrict]) {
 	size_t lnlen = strlen (cs);
 	char *restrict dl = malloc (lnlen + 1);
 	error_check (dl == NULL) return -1;
@@ -45,7 +45,7 @@ void free_cowsay (cowsay_t *restrict cowsay) {
 __attribute__ ((leaf, malloc, nonnull (1, 2), nothrow, warn_unused_result))
 char *build_cow (
 	cowsay_t const *restrict cowsay,
-	char const template[]) {
+	char const template[restrict]) {
 	size_t tsz = strlen (template) - 2 * 3 ;
 	size_t outsz = tsz + cowsay->lnlen * 3;
 	char *restrict out = malloc (outsz + 1);
@@ -62,8 +62,8 @@ char *build_cow (
 
 __attribute__ ((nonnull (1, 2, 3), warn_unused_result))
 int ezcowsay (
-	char const str[],
-	char const template[],
+	char const str[restrict],
+	char const template[restrict],
 	ezcowsaycb_t cb) {
 	cowsay_t cs;
 	char *restrict out;

@@ -22,14 +22,14 @@ __attribute__ ((leaf, nonnull (1), nothrow)) ;
 
 void init_cowsay (
 	cowsay_t *restrict cowsay,
-	char const cs[],
-	char dl[],
+	char const cs[restrict],
+	char dl[restrict],
 	size_t lnlen)
 __attribute__ ((nonnull (1, 2, 3), nothrow)) ;
 
 int alloc_cowsay (
 	cowsay_t *restrict cowsay,
-	char const cs[])
+	char const cs[restrict])
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result)) ;
 
 void free_cowsay (cowsay_t *restrict cowsay)
@@ -37,15 +37,15 @@ __attribute__ ((leaf, nonnull (1), nothrow)) ;
 
 char *build_cow (
 	cowsay_t const *restrict cowsay,
-	char const template[])
+	char const template[restrict])
 __attribute__ ((leaf, malloc, nonnull (1, 2), nothrow, warn_unused_result)) ;
 
 typedef __attribute__ ((nonnull (1), warn_unused_result))
 	int (*ezcowsaycb_t) (char const *restrict) ;
 
 int ezcowsay (
-	char const str[],
-	char const template[],
+	char const str[restrict],
+	char const template[restrict],
 	ezcowsaycb_t cb)
 __attribute__ ((nonnull (1, 2, 3), warn_unused_result)) ;
 
