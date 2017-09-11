@@ -1,8 +1,12 @@
+#if HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "cowsay.h"
+#include <cowsay.h>
 
 extern int snprintf(char *str, size_t size, const char *format, ...) ;
 

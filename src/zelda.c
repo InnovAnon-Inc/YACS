@@ -1,7 +1,11 @@
+#if HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "cowsay.h"
+#include <cowsay.h>
 
 int main (int argc, char *argv[]){
 	if (ezcowsay ("It's dangerous to go alone, take this!",
