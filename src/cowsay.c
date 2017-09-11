@@ -49,8 +49,7 @@ char *build_cow (
 	size_t tsz = strlen (template) - 2 * 3 ;
 	size_t outsz = tsz + cowsay->lnlen * 3;
 	char *restrict out = malloc (outsz + 1);
-	/* TODO */
-	/*if (outsz > SSIZE_MAX) return NULL;*/
+	TODO (if (outsz > SSIZE_MAX) return NULL;)
 	error_check (out == NULL) return NULL;
 	error_check ((ssize_t) outsz != snprintf (out, outsz, template,
 		cowsay->dashLength, cowsay->cowsay, cowsay->dashLength)) {
