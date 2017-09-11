@@ -8,7 +8,7 @@
 
 #include <cowsay.h>
 
-extern int snprintf(char *str, size_t size, const char *format, ...) ;
+/*extern int snprintf(char *str, size_t size, const char *format, ...) ;*/
 
 __attribute__ ((leaf, nonnull (1), nothrow))
 void build_dashLength (
