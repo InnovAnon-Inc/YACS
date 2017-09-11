@@ -1,13 +1,12 @@
-#include <string.h>
 #include <stdio.h>
-#include <sys/types.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "cowsay.h"
 
 extern int snprintf(char *str, size_t size, const char *format, ...) ;
 
-__attribute__ ((nonnull (1), nothrow))
+__attribute__ ((leaf, nonnull (1), nothrow))
 void build_dashLength (
 	char *restrict dl,
 	size_t lnlen) {
@@ -38,12 +37,12 @@ int alloc_cowsay (
 	return 0;
 }
 
-__attribute__ ((nonnull (1), nothrow))
+__attribute__ ((leaf, nonnull (1), nothrow))
 void free_cowsay (cowsay_t *restrict cowsay) {
 	free (cowsay->dashLength);
 }
 
-__attribute__ ((nonnull (1, 2), nothrow, warn_unused_result))
+__attribute__ ((leaf, malloc, nonnull (1, 2), nothrow, warn_unused_result))
 char *build_cow (
 	cowsay_t const *restrict cowsay,
 	char const *restrict template) {
