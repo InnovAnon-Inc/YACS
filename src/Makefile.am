@@ -3,7 +3,7 @@ AM_CPPFLAGS = -D__STDC_INT64__
 SUBDIRS = ../glitter
 AM_CPPFLAGS += -I $(top_srcdir)/glitter/src
 
-COWSAY_LIBADD =
+include Makefile-LIBADD.inc
 
 lib_LTLIBRARIES = libcowsay.la
 libcowsay_la_LIBADD = $(COWSAY_LIBADD)

@@ -1,0 +1,1 @@
+COWSAY_LIBADD =
