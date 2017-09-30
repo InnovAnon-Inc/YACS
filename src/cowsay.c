@@ -44,7 +44,7 @@ int alloc_cowsay (
 }
 
 __attribute__ ((leaf, nonnull (1), nothrow))
-void free_cowsay (cowsay_t *restrict cowsay) {
+void free_cowsay (cowsay_t const *restrict cowsay) {
 	free (cowsay->dashLength);
 }
 

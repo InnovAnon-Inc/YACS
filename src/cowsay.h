@@ -32,7 +32,7 @@ int alloc_cowsay (
 	char const cs[])
 __attribute__ ((nonnull (1, 2), nothrow, warn_unused_result)) ;
 
-void free_cowsay (cowsay_t *restrict cowsay)
+void free_cowsay (cowsay_t const *restrict cowsay)
 __attribute__ ((leaf, nonnull (1), nothrow)) ;
 
 char *build_cow (
