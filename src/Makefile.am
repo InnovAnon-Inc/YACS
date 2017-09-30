@@ -1,21 +1,17 @@
+COWSAY_LIBADD =
+
 lib_LTLIBRARIES = libcowsay.la
-libcowsay_la_SOURCES = cowsay.c
-include_HEADERS	= cowsay.h
-#libcowsay_la_CFLAGS =
+libcowsay_la_LIBADD = $(COWSAY_LIBADD)
+include_HEADERS = cowsay.h
 
 bin_PROGRAMS = cowsay-test laden zelda
-cowsay_test_SOURCES = cowsay-test.c
-cowsay_test_LDADD = libcowsay.la
-#cowsay_test_CFLAGS =
+cowsay_test_LDADD = libcowsay.la $(COWSAY_LIBADD)
 
-laden_SOURCES = laden.c
-laden_LDADD = libcowsay.la
-#laden_CFLAGS =
+laden_LDADD = libcowsay.la $(COWSAY_LIBADD)
 
-zelda_SOURCES = zelda.c
-zelda_LDADD = libcowsay.la
-#zelda_CFLAGS =
+zelda_LDADD = libcowsay.la $(COWSAY_LIBADD)
 
 AM_CPPFLAGS = -D__STDC_INT64__
-AM_CPPFLAGS += -I $(top_srcdir)/glitter/src
 
+SUBDIRS = ../glitter
+AM_CPPFLAGS += -I ../glitter/src
