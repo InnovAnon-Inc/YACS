@@ -1,7 +1,7 @@
 AM_CPPFLAGS = -D__STDC_INT64__
 
 SUBDIRS = ../glitter
-AM_CPPFLAGS += -I ../glitter/src
+AM_CPPFLAGS += -I $(top_srcdir)/glitter/src
 
 COWSAY_LIBADD =
 
@@ -9,8 +9,8 @@ lib_LTLIBRARIES = libcowsay.la
 libcowsay_la_LIBADD = $(COWSAY_LIBADD)
 include_HEADERS = cowsay.h
 
-bin_PROGRAMS = cowsay-test laden zelda
-cowsay_test_LDADD = libcowsay.la $(COWSAY_LIBADD)
+bin_PROGRAMS = cowsay laden zelda
+cowsay_LDADD = libcowsay.la $(COWSAY_LIBADD)
 
 laden_LDADD = libcowsay.la $(COWSAY_LIBADD)
 
