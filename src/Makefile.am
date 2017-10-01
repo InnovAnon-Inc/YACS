@@ -8,12 +8,12 @@ endif
 include Makefile-LIBADD.inc
 
 lib_LTLIBRARIES = libcowsay.la
-libcowsay_la_LIBADD = $(COWSAY_LIBADD)
+libcowsay_la_LIBADD = $(LIBCOWSAY_LIBADD)
 include_HEADERS = cowsay.h
 
 bin_PROGRAMS = cowsay laden zelda
-cowsay_LDADD = libcowsay.la $(COWSAY_LIBADD)
+cowsay_LDADD = libcowsay.la $(LIBCOWSAY_LIBADD)
 
-laden_LDADD = libcowsay.la $(COWSAY_LIBADD)
+laden_LDADD = libcowsay.la $(LIBCOWSAY_LIBADD)
 
-zelda_LDADD = libcowsay.la $(COWSAY_LIBADD)
+zelda_LDADD = libcowsay.la $(LIBCOWSAY_LIBADD)
