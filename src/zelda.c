@@ -14,7 +14,7 @@ int main (int argc, char *argv[]){
 		"--%s--\n"
 		"\n"
 		"          o-)-(:::::::::::::::>﻿\n",
-		puts) != 0)
+		puts) == EOF)
 		return EXIT_FAILURE;
 	return EXIT_SUCCESS;
 }

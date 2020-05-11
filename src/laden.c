@@ -24,7 +24,7 @@ int main (int argc, char *argv[]){
 		"      | ` ~~ ` |   \n"
 		"      \\        /   \n"
 		"jgs    `.____.`    \n",
-		puts) != 0)
+		puts) == EOF)
 		return EXIT_FAILURE;
 	return EXIT_SUCCESS;
 }

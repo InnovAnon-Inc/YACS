@@ -17,7 +17,7 @@ int main (int argc, char *argv[]){
 		"     (__)|       )/|/\n"
 		"         ||----w |\n"
 		"         ||     ||\n",
-		puts) != 0)
+		puts) == EOF)
 		return EXIT_FAILURE;
 	return EXIT_SUCCESS;
 }
