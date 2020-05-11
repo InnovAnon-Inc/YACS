@@ -23,6 +23,18 @@ AC_CHECK_HEADERS([glitter.h])
 AC_CHECK_LIB([stdlib],[snprintf])
 #AC_SEARCH_LIBS([snprintf],[stdlib],[],[])
 
+LIBCOWSAY_LIBADD="`PATH=src:$PATH libcowsay_config --libs`"
+AC_SUBST(LIBCOWSAY_LIBADD)
+
+COWSAY_LIBADD="libcowsay.la `PATH=src:$PATH cowsay_config --libs`"
+AC_SUBST(COWSAY_LIBADD)
+
+LADEN_LIBADD="libcowsay.la `PATH=src:$PATH laden_config --libs`"
+AC_SUBST(LADEN_LIBADD)
+
+ZELDA_LIBADD="libcowsay.la `PATH=src:$PATH zelda_config --libs`"
+AC_SUBST(ZELDA_LIBADD)
+
 INNOVANON_WARNINGS([])
 
 AC_OUTPUT
