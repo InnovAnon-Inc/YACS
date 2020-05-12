@@ -8,6 +8,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
  Makefile
  src/Makefile
+# src/laden2
 ])
 
 AC_ARG_ENABLE([use-submodules],
@@ -23,16 +24,17 @@ AC_CHECK_HEADERS([glitter.h])
 AC_CHECK_LIB([stdlib],[snprintf])
 #AC_SEARCH_LIBS([snprintf],[stdlib],[],[])
 
-LIBCOWSAY_LIBADD="`PATH=src:$PATH libcowsay_config --libs`"
+srcdir = @srcdir@
+LIBCOWSAY_LIBADD="`PATH=$(srcdir)src:$PATH libcowsay_config --libs`"
 AC_SUBST(LIBCOWSAY_LIBADD)
 
-COWSAY_LIBADD="libcowsay.la `PATH=src:$PATH cowsay_config --libs`"
+COWSAY_LIBADD="`PATH=$(srcdir)src:$PATH cowsay_config --libs`"
 AC_SUBST(COWSAY_LIBADD)
 
-LADEN_LIBADD="libcowsay.la `PATH=src:$PATH laden_config --libs`"
+LADEN_LIBADD="`PATH=$(srcdir)src:$PATH laden_config --libs`"
 AC_SUBST(LADEN_LIBADD)
 
-ZELDA_LIBADD="libcowsay.la `PATH=src:$PATH zelda_config --libs`"
+ZELDA_LIBADD="`PATH=$(srcdir)src:$PATH zelda_config --libs`"
 AC_SUBST(ZELDA_LIBADD)
 
 INNOVANON_WARNINGS([])

@@ -9,15 +9,20 @@ AM_CPPFLAGS = -D__STDC_INT64__
 dist_bin_SCRIPTS = libcowsay_config cowsay_config laden_config zelda_config
 
 lib_LTLIBRARIES = libcowsay.la
-libcowsay_la_LIBADD = $(LIBCOWSAY_LIBADD)
+libcowsay_la_LIBADD = @LIBCOWSAY_LIBADD@
 include_HEADERS = cowsay.h
+
+#bin_SCRIPTS = laden2
 
 bin_PROGRAMS = cowsay laden zelda
 #cowsay_LDADD = libcowsay.la $(LIBCOWSAY_LIBADD)
-cowsay_LDADD = $(COWSAY_LIBADD)
+cowsay_LDADD = @COWSAY_LIBADD@
+EXTRA_cowsay_DEPENDENCIES = libcowsay.la
 
 #laden_LDADD = libcowsay.la $(LIBCOWSAY_LIBADD)
-laden_LDADD = $(LADEN_LIBADD)
+laden_LDADD = @LADEN_LIBADD@
+EXTRA_laden_DEPENDENCIES = libcowsay.la
 
 #zelda_LDADD = libcowsay.la $(LIBCOWSAY_LIBADD)
-zelda_LDADD = $(ZELDA_LIBADD)
+zelda_LDADD = @ZELDA_LIBADD@
+EXTRA_zelda_DEPENDENCIES = libcowsay.la
