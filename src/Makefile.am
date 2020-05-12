@@ -12,7 +12,7 @@ lib_LTLIBRARIES = libcowsay.la
 libcowsay_la_LIBADD = @LIBCOWSAY_LIBADD@
 include_HEADERS = cowsay.h
 
-#bin_SCRIPTS = laden2
+#bin_SCRIPTS = laden-tmp
 
 bin_PROGRAMS = cowsay laden zelda
 #cowsay_LDADD = libcowsay.la $(LIBCOWSAY_LIBADD)
@@ -26,3 +26,13 @@ EXTRA_laden_DEPENDENCIES = libcowsay.la
 #zelda_LDADD = libcowsay.la $(LIBCOWSAY_LIBADD)
 zelda_LDADD = @ZELDA_LIBADD@
 EXTRA_zelda_DEPENDENCIES = libcowsay.la
+
+#BUILT_SOURCES = tmp/laden
+#tmp/laden: laden-tmp
+#	${SHELL} $< $@
+BUILT_SOURCES = laden-wrapper
+laden-wrapper: Makefile
+	echo -e '#! /bin/bash\nset -eu\nLD_LIBRARY_PATH=@libdir@ @bindir@/laden' > $@
+	chmod -v +x $@
+install-exec-hook:
+	mv -v laden-wrapper ${DESTDIR}/bin/laden

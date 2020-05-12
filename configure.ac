@@ -9,7 +9,7 @@ AC_CONFIG_FILES([
  Makefile
  src/Makefile
 ])
-# src/laden2
+# src/laden-tmp
 
 AC_ARG_ENABLE([use-submodules],
     AS_HELP_STRING([--enable-use-submodules], [Enable use submodules]))
