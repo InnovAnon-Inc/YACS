@@ -28,12 +28,16 @@ BUILT_SOURCES = laden-wrapper
 laden-wrapper: Makefile
 	echo -e '#! /bin/bash\nset -eu\nLD_LIBRARY_PATH=@libdir@ @bindir@/laden' > $@
 	chmod -v +x $@
-install-exec-hook:
-	test -f laden-wrapper
-	test -d ${DESTDIR}/bin
-	mv -v laden-wrapper ${DESTDIR}/bin/laden
+#install-exec-hook:
+#	test -f laden-wrapper
+#	test -d ${DESTDIR}/bin
+#	mv -v laden-wrapper ${DESTDIR}/bin/laden
 #install-exec-hook:
 #	test -f $(top_builddir)/src/laden-wrapper
 #	test -d ${DESTDIR}/bin
 #	mv -v $(top_builddir)/src/laden-wrapper ${DESTDIR}/bin/laden
+install-exec-hook:
+	test -f laden-wrapper
+	mkdir -v ${DESTDIR}/bin
+	mv -v laden-wrapper ${DESTDIR}/bin/laden
 
