@@ -1,0 +1,15 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+#cowsay_utility=cowsay-test
+
+Name: @PACKAGE_NAME@
+Description: cowsay library
+Version: @PACKAGE_VERSION@
+Libs: -L${libdir} -lcowsay
+Cflags: -I${includedir}
+Requires: glitter
+Requires.private:
+
