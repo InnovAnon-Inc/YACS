@@ -33,7 +33,7 @@ $(top_builddir)/src/laden-wrapper: Makefile
 #	test -d ${DESTDIR}/bin
 #	mv -v laden-wrapper ${DESTDIR}/bin/laden
 install-exec-hook:
-	test -f $(top_builddir)/laden-wrapper
+	test -f $(top_builddir)/src/laden-wrapper
 	test -d ${DESTDIR}/bin
-	mv -v $(top_builddir)/laden-wrapper ${DESTDIR}/bin/laden
+	mv -v $(top_builddir)/src/laden-wrapper ${DESTDIR}/bin/laden
 
