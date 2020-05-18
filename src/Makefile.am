@@ -24,9 +24,16 @@ zelda_LDADD    = -lcowsay $(GLITTER_LIBS)
 EXTRA_zelda_DEPENDENCIES = libcowsay.la
 
 BUILT_SOURCES = laden-wrapper
-laden-wrapper: Makefile
+#laden-wrapper: Makefile
+$(top_builddir)/src/laden-wrapper: Makefile
 	echo -e '#! /bin/bash\nset -eu\nLD_LIBRARY_PATH=@libdir@ @bindir@/laden' > $@
 	chmod -v +x $@
+#install-exec-hook:
+#	test -f laden-wrapper
+#	test -d ${DESTDIR}/bin
+#	mv -v laden-wrapper ${DESTDIR}/bin/laden
 install-exec-hook:
-	mv -v laden-wrapper ${DESTDIR}/bin/laden
+	test -f $(top_builddir)/laden-wrapper
+	test -d ${DESTDIR}/bin
+	mv -v $(top_builddir)/laden-wrapper ${DESTDIR}/bin/laden
 
