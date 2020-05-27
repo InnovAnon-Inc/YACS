@@ -1,11 +1,12 @@
 # YACS
 Y(et) A(nother) C(ow)S(ay) (libcowsay in C major)
 ==========
+
 How is this not a thing?
 
 Includes an implementation of Mike's joke program: /bin/laden
-
 ----------
+
 [![CircleCI](https://img.shields.io/circleci/build/github/InnovAnon-Inc/YACS?color=%23FF1100&logo=InnovAnon%2C%20Inc.&logoColor=%23FF1133&style=plastic)](https://circleci.com/gh/InnovAnon-Inc/YACS)
 [![Repo Size](https://img.shields.io/github/repo-size/InnovAnon-Inc/YACS?color=%23FF1100&logo=InnovAnon%2C%20Inc.&logoColor=%23FF1133&style=plastic)](https://github.com/InnovAnon-Inc/YACS)
 [![LoC](https://tokei.rs/b1/github/InnovAnon-Inc/YACS?category=code)](https://github.com/InnovAnon-Inc/YACS)
